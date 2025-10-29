@@ -22,7 +22,7 @@ spec:
         eks.amazonaws.com/nodegroup: frontend-ng    # Updated for EKS nodegroup
       containers:
       - name: frontend
-        image: mukheshdn/frontend:13
+        image: mukheshdn/frontend:01
         ports:
         - containerPort: 80
         resources:
@@ -52,6 +52,7 @@ spec:
     - port: 80
       targetPort: 80
       protocol: TCP
+
 
 
 
