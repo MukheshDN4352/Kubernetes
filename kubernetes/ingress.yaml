@@ -40,7 +40,7 @@ spec:
     - host: socialecho-alb-847014775.ap-south-1.elb.amazonaws.com
       http:
         paths:
-          - path: /api
+          - path: /api/
             pathType: Prefix
             backend:
               service:
@@ -55,3 +55,4 @@ spec:
                 name: frontend    # <- this references the ACTION
                 port:
                   name: use-annotation
+
