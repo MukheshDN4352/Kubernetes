@@ -5,12 +5,10 @@ metadata:
   namespace: socialecho
   annotations:
     kubernetes.io/ingress.class: alb
-    alb.ingress.kubernetes.io/load-balancer-name: socialecho-alb
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
-    alb.ingress.kubernetes.io/healthcheck-path: /api/server-status
 
-    # Weighted routing action for frontend
+    # FRONTEND CANARY
     alb.ingress.kubernetes.io/actions.frontend: |
       {
         "type": "forward",
@@ -22,7 +20,7 @@ metadata:
         }
       }
 
-    # Weighted routing action for backend
+    # BACKEND CANARY
     alb.ingress.kubernetes.io/actions.backend: |
       {
         "type": "forward",
@@ -37,14 +35,15 @@ metadata:
 spec:
   ingressClassName: alb
   rules:
-    - host: socialecho-alb-847014775.ap-south-1.elb.amazonaws.com
+    - host: k8s-socialec-socialec-c956ab9939-1253519711.ap-south-1.elb.amazonaws.com
       http:
         paths:
+
           - path: /api
             pathType: Prefix
             backend:
               service:
-                name: backend      # <- this references the ACTION
+                name: backend
                 port:
                   name: use-annotation
 
@@ -52,8 +51,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: frontend    # <- this references the ACTION
+                name: frontend
                 port:
                   name: use-annotation
-
-
