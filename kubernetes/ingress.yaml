@@ -35,7 +35,7 @@ metadata:
 spec:
   ingressClassName: alb
   rules:
-    - host: k8s-socialec-socialec-c956ab9939-1253519711.ap-south-1.elb.amazonaws.com
+    - host: k8s-socialec-socialec-c956ab9939-1483495231.ap-south-1.elb.amazonaws.com
       http:
         paths:
 
