@@ -19,7 +19,7 @@ spec:
         version: v1
     spec:
       nodeSelector:
-        eks.amazonaws.com/nodegroup: frontend-ng    # Updated for EKS nodegroup
+        eks.amazonaws.com/nodegroup: frontend-canary-ng     # Updated for EKS nodegroup
       containers:
       - name: frontend
         image: mukheshdn/frontend:01
