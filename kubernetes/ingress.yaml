@@ -35,11 +35,11 @@ metadata:
 spec:
   ingressClassName: alb
   rules:
-    - host: socialecho.mydomain.com
+    - host: http://k8s-socialec-socialec-c956ab9939-1483495231.ap-south-1.elb.amazonaws.com/api/version
       http:
         paths:
 
-          - path: /api
+          - path: /api*
             pathType: Prefix
             backend:
               service:
